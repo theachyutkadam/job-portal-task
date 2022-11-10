@@ -2,6 +2,7 @@ from .models import Technology
 from rest_framework import serializers
 
 class TechnologySerializer(serializers.Serializer):
+  id = serializers.IntegerField()
   name = serializers.CharField()
   description = serializers.CharField()
   is_active = serializers.BooleanField()

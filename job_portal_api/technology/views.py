@@ -14,6 +14,9 @@ class TechnologyList(APIView):
 
   def post(self, request, format=None):
     serializer = TechnologySerializer(data=request.data)
+    print("+++++++++++++++++")
+    print(serializer.errors)
+    print("+++++++++++++++++")
     if serializer.is_valid(raise_exception=True):
       serializer.save()
       return Response(serializer.data, status=status.HTTP_201_CREATED)

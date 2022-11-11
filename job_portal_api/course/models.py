@@ -8,7 +8,7 @@ class Course(models.Model):
   description = models.TextField(max_length=500, blank=True)
   technology_id = models.ForeignKey(Technology, on_delete=models.CASCADE)
   icon = models.CharField(max_length=25)
-  image = models.ImageField(max_length=None)
+  image = models.ImageField(max_length=None, blank=True)
   meta_keywords = models.TextField(max_length=500, blank=True)
   meta_description = models.TextField(max_length=500, blank=True)
   is_active = models.BooleanField(default=True)

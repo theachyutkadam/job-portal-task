@@ -2,13 +2,13 @@ from .models import Course
 from rest_framework import serializers
 
 class CourseSerializer(serializers.Serializer):
-  id =               serializers.IntegerField()
+  # id =               serializers.IntegerField()
   name =             serializers.CharField()
   slug =             serializers.CharField()
   description =      serializers.CharField()
   # technology_id =    serializers.IntegerField()
   icon =             serializers.CharField()
-  image =            serializers.ImageField()
+  image =            serializers.ImageField(required=False)
   meta_keywords =    serializers.CharField()
   meta_description = serializers.CharField()
   is_active =        serializers.BooleanField()

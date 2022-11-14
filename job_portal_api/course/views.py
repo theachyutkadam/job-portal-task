@@ -2,6 +2,7 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import permissions
 
 from .models import Course
 from .serializers import CourseSerializer
@@ -9,6 +10,7 @@ from .serializers import CourseSerializer
 class CourseList(APIView):
   def get(self, request, format=None):
     courses = Course.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
     serializer = CourseSerializer(courses, many=True)
     return Response(serializer.data)
 
@@ -18,6 +20,7 @@ class CourseList(APIView):
       serializer.save()
       return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    permission_classes = [permissions.IsAuthenticated]
 
 class CourseDetail(APIView):
   """

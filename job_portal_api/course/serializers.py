@@ -3,22 +3,21 @@ from dataclasses import fields
 from .models import Course
 from rest_framework import serializers
 
-class CourseSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Course
-    fields = ('id', 'name', 'slug', 'description', 'technology_id', 'icon', 'image', 'meta_keywords', 'meta_description', 'is_active', 'banner')
-
-  # # id =               serializers.IntegerField()
-  # name =             serializers.CharField()
-  # slug =             serializers.CharField()
-  # description =      serializers.CharField()
+class CourseSerializer(serializers.Serializer):
+  # class Meta:
+  #   model = Course
+  #   fields = ('id', 'name', 'slug', 'description', 'technology_id', 'icon', 'image', 'meta_keywords', 'meta_description', 'is_active', 'banner')
+  # id =             serializers.IntegerField()
+  name =             serializers.CharField()
+  slug =             serializers.CharField()
+  description =      serializers.CharField()
   # technology_id =    serializers.IntegerField()
-  # icon =             serializers.CharField()
-  # image =            serializers.ImageField(required=False)
-  # meta_keywords =    serializers.CharField()
-  # meta_description = serializers.CharField()
-  # is_active =        serializers.BooleanField()
-  # banner =           serializers.BooleanField()
+  icon =             serializers.CharField()
+  image =            serializers.ImageField(required=False)
+  meta_keywords =    serializers.CharField()
+  meta_description = serializers.CharField()
+  is_active =        serializers.BooleanField()
+  banner =           serializers.BooleanField()
 
   def create(self, validated_data):
     return Course.objects.create(**validated_data)

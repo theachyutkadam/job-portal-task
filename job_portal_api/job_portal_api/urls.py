@@ -26,7 +26,6 @@ router.register(r'program', program_view.ProgramSerializer)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-
     path('', include('technology.urls')),
     path('', include('course.urls')),
 ]

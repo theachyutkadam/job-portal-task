@@ -7,7 +7,7 @@ class CourseSerializer(serializers.Serializer):
   # class Meta:
   #   model = Course
   #   fields = ('id', 'name', 'slug', 'description', 'technology_id', 'icon', 'image', 'meta_keywords', 'meta_description', 'is_active', 'banner')
-  # id =             serializers.IntegerField()
+  id =             serializers.IntegerField()
   name =             serializers.CharField()
   slug =             serializers.CharField()
   description =      serializers.CharField()

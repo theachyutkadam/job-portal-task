@@ -1,11 +1,15 @@
 from .models import Technology
 from rest_framework import serializers
+from dataclasses import fields
 
-class TechnologySerializer(serializers.Serializer):
-  id = serializers.IntegerField()
-  name = serializers.CharField()
-  description = serializers.CharField()
-  is_active = serializers.BooleanField()
+class TechnologySerializer(serializers.ModelSerializer):
+  # id = serializers.IntegerField()
+  # name = serializers.CharField()
+  # description = serializers.CharField()
+  # is_active = serializers.BooleanField()
+  class Meta:
+    model = Technology
+    fields = ('id','url', 'name', 'description', 'is_active')
 
   def create(self, validated_data):
     return Technology.objects.create(**validated_data)

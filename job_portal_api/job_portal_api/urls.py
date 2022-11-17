@@ -19,9 +19,11 @@ from django.conf import settings
 from rest_framework import routers
 from django.conf.urls.static import static
 from program import views as program_view
+from technology import views as technology_view
 from authentication.views import login
 
 router = routers.DefaultRouter()
+router.register(r'technology', technology_view.TechnologySerializer)
 router.register(r'program', program_view.ProgramSerializer)
 
 urlpatterns = [
@@ -31,6 +33,5 @@ urlpatterns = [
     path('', include('technology.urls')),
     path('', include('course.urls')),
 ]
-# static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

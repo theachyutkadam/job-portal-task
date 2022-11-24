@@ -1,15 +1,17 @@
-# from django.http import Http404
 from rest_framework.views import APIView
-# from rest_framework.response import Response
-# from rest_framework import status
-
 from rest_framework import viewsets
 from .serializers import TechnologySerializer
 from .models import Technology
+from django_filters.rest_framework import DjangoFilterBackend
+# from rest_framework import generics
+
+from rest_framework import filters
 
 class TechnologySerializer(viewsets.ModelViewSet):
-  queryset = Technology.objects.all().order_by('id')
+  queryset = Technology.objects.all()
   serializer_class = TechnologySerializer
+  filter_backends = [filters.SearchFilter]
+  search_fields = ['name', 'description']
 # class TechnologyList(APIView):
 #   def get(self, request, format=None):
 #     technologys = Technology.objects.all()

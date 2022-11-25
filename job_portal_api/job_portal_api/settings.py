@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'technology',
     'course',
     'program',
+    'authors',
     'rest_framework.authtoken',
     'django_filters',
 ]
@@ -140,7 +141,8 @@ REST_FRAMEWORK = {
       'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-      'rest_framework.permissions.IsAuthenticated',
+    #   'rest_framework.permissions.IsAuthenticated',
+      'rest_framework.authentication.BasicAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }

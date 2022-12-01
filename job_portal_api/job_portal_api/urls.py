@@ -19,6 +19,7 @@ from django.conf import settings
 from rest_framework import routers
 from django.conf.urls.static import static
 from program import views as program_view
+from experiance import views as experiance_view
 from technology import views as technology_view
 # from authentication.views import login, logout_user
 
@@ -31,6 +32,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 router = routers.DefaultRouter()
 router.register(r'technology', technology_view.TechnologySerializer)
 router.register(r'program', program_view.ProgramSerializer)
+router.register(r'experiance', experiance_view.ExperianceSerializer)
 
 router.register(r'api/users', UserViewSet, basename='user')
 router.register(r'api/authors', AuthorViewSet, basename='author')

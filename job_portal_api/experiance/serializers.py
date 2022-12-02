@@ -1,5 +1,5 @@
 from dataclasses import fields
-from .models import Experiance, Resume
+from .models import Experiance
 from rest_framework import serializers
 
 class ExperianceSerializer(serializers.ModelSerializer):
